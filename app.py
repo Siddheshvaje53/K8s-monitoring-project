@@ -25,3 +25,10 @@ def metrics():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+
+# Use this for badimage or ErrImagePull or ImagePullBackOff error scenario.
+@app.route('/slow')
+def slow():
+    time.sleep(random.uniform(1.5, 3.0))
+    return 'this endpoint is intentionally slow'
